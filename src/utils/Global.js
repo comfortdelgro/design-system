@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import { primaryFontFamily } from "./typography";
-import { normalize } from "polished";
+import {createGlobalStyle} from 'styled-components'
+import {primaryFontFamily} from './typography'
+import {normalize} from 'polished'
 
 export const GlobalStyle = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css?family=Barlow");
@@ -26,4 +26,4 @@ main {
   width: 90%;
   margin: 0 auto;
 }
-`;
+`

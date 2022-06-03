@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "bracketSpacing": false,
+  "printWidth": 120,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": ["*.tsx, *.yml"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}
+

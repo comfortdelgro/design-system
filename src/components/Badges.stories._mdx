@@ -1,6 +1,6 @@
 import { Meta, Story, Preview } from "@storybook/addon-docs";
 // import { action } from "@storybook/addon-actions";
-import { Badge } from "./Badges";
+import { Badge } from "../components/Badges";
 
 <Meta title="Components/Badges" component={Badge} />
 
@@ -17,7 +17,7 @@ Badges are used to display important label within an application.
 Badges are used to display important label within an application.
 
 <Preview withToolbar>
-  <Story 
+  <Story
     name="Badges"
     argTypes={{
       type: {

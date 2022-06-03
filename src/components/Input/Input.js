@@ -2,22 +2,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {buttonScales} from '../utils'
 
-export const BUTTON_TYPES = {
-  primary: 'primary',
-  secondary: 'secondary',
-  negative: 'negative'
-}
-
-export const BUTTON_SIZES = {
-  large: 'large',
-  small: 'small'
-}
-
-export const BUTTON_ICON_POSITIONS = {
-  right: 'right',
-  left: 'left'
-}
-
 export const BUTTON_MODIFIERS = {
   small: ({iconPosition}) => {
     let style = 'font-weight: 500;'

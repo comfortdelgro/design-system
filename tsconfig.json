@@ -1,0 +1,32 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "App",
+	"extends": "@tsconfig/recommended/tsconfig.json",
+	"compilerOptions": {
+		"emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "incremental": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+		"target": "es6",
+		"lib": [
+			"dom"
+		],
+		"jsx": "react",
+		"declaration": true,
+		"declarationMap": true,
+		"outDir": "./dist",
+		"rootDirs": [
+			"src",
+			"stories"
+		],
+		"rootDir": "src",
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true
+	}
+}

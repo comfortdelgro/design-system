@@ -1,62 +1,49 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 // TODO: refactor default props declaration
- 
+
 // TODO: centralized types declaration pattern for all components
 export const RADIO_BUTTON_TYPES = {
-  PRIMARY: 'primary',
-};
+  PRIMARY: 'primary'
+}
 
 export class RadioGroup extends React.Component {
   render() {
-    const {
-      Component,
-      name,
-      selectedValue,
-      onClickRadioButton,
-      children,
-      ...rest
-    } = this.props;
+    const {Component, name, selectedValue, onClickRadioButton, children, ...rest} = this.props
     return (
       <Component role="radiogroup" {...rest} name={name}>
-        {
-          React.Children.map(children, element =>
-            React.cloneElement(element, {
-              ...element.props,
-              checked: selectedValue === element.props.value,
-              onChange: () => onClickRadioButton(element.props.value),
-              name
-            })
-          )
-        }
+        {React.Children.map(children, (element) =>
+          React.cloneElement(element, {
+            ...element.props,
+            checked: selectedValue === element.props.value,
+            onChange: () => onClickRadioButton(element.props.value),
+            name
+          })
+        )}
       </Component>
-    );
+    )
   }
 }
 
 RadioGroup.propTypes = {
   name: PropTypes.string,
   children: PropTypes.node.isRequired,
-  Component: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.object
-  ])
-};
+  Component: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.object])
+}
 
 RadioGroup.defaultProps = {
-  name: "",
-  selectedValue: "",
-  Component: "div"
-};
+  name: '',
+  selectedValue: '',
+  Component: 'div'
+}
 
 // eslint-disable-next-line react/no-multi-comp
 export class Radio extends React.Component {
   render() {
-    const { type, onChange, value, labelText, checked, name, size, disabled } = this.props;
-    
+    const {type, onChange, value, labelText, checked, name, size, disabled} = this.props
+
     return (
       <Root type={type} size={size} checked={checked} disabled={disabled}>
         <label>
@@ -74,7 +61,7 @@ export class Radio extends React.Component {
           <Fill size={size} />
         </label>
       </Root>
-    );
+    )
   }
 }
 
@@ -84,33 +71,33 @@ Radio.propTypes = {
   value: PropTypes.string,
   labelText: PropTypes.string,
   size: PropTypes.string,
-  disabled: PropTypes.bool,
-};
+  disabled: PropTypes.bool
+}
 
 Radio.defaultProps = {
   type: RADIO_BUTTON_TYPES.PRIMARY,
   onChange: () => {},
-  value: "",
-  labelText: "",
-  size: "24px",
-  disabled: false,
-};
+  value: '',
+  labelText: '',
+  size: '24px',
+  disabled: false
+}
 
 const Root = styled.div`
   margin: 5px;
   cursor: pointer;
-  width: ${props => props.size};
-  height: ${props => props.size};
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
   position: relative;
   label {
-    margin-left: calc(${props => props.size} + 6px);
+    margin-left: calc(${(props) => props.size} + 6px);
     white-space: nowrap;
     font-weight: 400;
     font-size: 14px;
-    line-height: ${props => props.size};
+    line-height: ${(props) => props.size};
   }
   &::before {
-    content: "";
+    content: '';
     border-radius: 100%;
     width: 100%;
     height: 100%;
@@ -120,30 +107,30 @@ const Root = styled.div`
     pointer-events: none;
     z-index: 0;
     // Solving Modifiers
-    ${({ checked, disabled, borderColor, type, backgroundColor, theme }) => {
-      const borderStyle = `2px solid ${(borderColor ? borderColor : theme.outline)}`;
-      let style = '';
+    ${({checked, disabled, borderColor, type, backgroundColor, theme}) => {
+      const borderStyle = `2px solid ${borderColor ? borderColor : theme.outline}`
+      let style = ''
       if (checked || disabled) {
-        const bgColor = disabled ? theme.disabledColors.control : theme.primaryColors.blue;
-        const hasBorder = type === RADIO_BUTTON_TYPES.LIGHT; 
+        const bgColor = disabled ? theme.disabledColors.control : theme.primaryColors.blue
+        const hasBorder = type === RADIO_BUTTON_TYPES.LIGHT
 
         style += `
-          border: ${ hasBorder ? borderStyle : 'unset' };
+          border: ${hasBorder ? borderStyle : 'unset'};
           background: ${backgroundColor ? backgroundColor : bgColor}
-        `;
+        `
       } else {
         style += `
-          border: ${ disabled ? `unset` : borderStyle };
+          border: ${disabled ? `unset` : borderStyle};
           background: ${backgroundColor ? backgroundColor : theme.primaryColors.white};
-        `;
+        `
       }
-      return style;
+      return style
     }}
   }
-`;
+`
 
 const Fill = styled.div`
-  background: ${props => (props.fillColor ? props.fillColor : props.theme.primaryColors.white)};
+  background: ${(props) => (props.fillColor ? props.fillColor : props.theme.primaryColors.white)};
   width: 0;
   height: 0;
   border-radius: 100%;
@@ -156,7 +143,7 @@ const Fill = styled.div`
   z-index: 1;
 
   &::before {
-    content: "";
+    content: '';
     opacity: 0;
     width: 100%;
     height: 100%;
@@ -166,7 +153,7 @@ const Fill = styled.div`
     transform: translate(-50%, -50%);
     border-radius: 100%;
   }
-`;
+`
 
 const Input = styled.input`
   opacity: 0;
@@ -192,9 +179,7 @@ const Input = styled.input`
       &::before {
         opacity: 1;
         transition: opacity 1s ease;
-        background: ${ 
-          ({ theme, disabled }) => disabled ? theme.disabledColors.text : theme.primaryColors.white
-        };
+        background: ${({theme, disabled}) => (disabled ? theme.disabledColors.text : theme.primaryColors.white)};
       }
     }
   }
@@ -207,4 +192,4 @@ const Input = styled.input`
       }
     }
   }
-`;
+`
