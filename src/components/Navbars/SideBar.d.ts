@@ -1,0 +1,13 @@
+export const LOGO_SIZE: 52;
+export const SIDE_BAR_ITEM_ICON_SIZE: 24;
+export const SIDE_BAR_WIDTH: "270px";
+export const COLLAPSED_SIDE_BAR_WIDTH: "72px";
+export const StyledSideBar: any;
+export const StyledLogo: any;
+export const StyledCloseButton: any;
+export const StyledSideBarItem: any;
+export const StyledSideBarItemIcon: any;
+export const StyledSideBarItemContent: any;
+export const SideBar: React.ForwardRefExoticComponent<React.RefAttributes<any>>;
+export const SideBarItem: React.ForwardRefExoticComponent<React.RefAttributes<any>>;
+import * as React from "react";

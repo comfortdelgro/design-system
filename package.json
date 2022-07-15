@@ -3,12 +3,16 @@
   "description": "Comfort Delgro's design system",
   "version": "0.8.1-dev",
   "dependencies": {
+    "@types/node": "^18.0.4",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "baseui": "^11.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^4.4.1",
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2",
+    "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {
